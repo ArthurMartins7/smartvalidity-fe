@@ -26,7 +26,7 @@ export class CorredorService {
 
 
   public salvar(corredor: Corredor): Observable<any> {
-    return this.httpClient.post<Corredor>(this.API + '/inserir', corredor)
+    return this.httpClient.post<Corredor>(this.API, corredor)
   }
 
   public atualizar(corredor: Corredor):Observable<any> {
