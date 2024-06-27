@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ItemProdutoListagemComponent } from './item-produto-listagem/item-produto-listagem.component';
-import { ItemProdutoDetalheComponent } from './item-produto-detalhe/item-produto-detalhe.component';
+import { ItemListagemComponent } from './item-listagem/item-listagem.component';
+import { ItemDetalheComponent } from './item-detalhe/item-detalhe.component';
 
 const routes: Routes = [
-  {path: "", component: ItemProdutoListagemComponent},
-  {path:'detalhe', component: ItemProdutoDetalheComponent},
-  {path:'detalhe/:id', component: ItemProdutoDetalheComponent}
-
+  {path: "", component: ItemListagemComponent},
+  {path:'detalhe', component: ItemDetalheComponent}
 ];
 
 @NgModule({
