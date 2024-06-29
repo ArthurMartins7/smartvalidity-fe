@@ -10,7 +10,19 @@ export const routes: Routes = [
     loadChildren:() => import('./corredor/corredor.module').then(m => m.CorredorModule),
   },
 
+  {
+    path: 'categoria',
+    loadChildren:() => import('./categoria/categoria.module').then(m => m.CategoriaModule),
+  },
 
+  {
+    path: 'produto',
+    loadChildren:() => import('./produto/produto.module').then(m => m.ProdutoModule),
+  },
 
+  {
+    path: 'fornecedor',
+    loadChildren:() => import('./fornecedor/fornecedor.module').then(m => m.FornecedorModule),
+  }
 ];
 

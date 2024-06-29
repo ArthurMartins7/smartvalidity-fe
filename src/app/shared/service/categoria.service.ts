@@ -26,11 +26,11 @@ export class CategoriaService {
 
 
   public salvar(categoria: Categoria): Observable<any> {
-    return this.httpClient.post<Categoria>(this.API + '/inserir', categoria)
+    return this.httpClient.post<Categoria>(this.API, categoria)
   }
 
   public atualizar(categoria: Categoria):Observable<any> {
-    return this.httpClient.put(this.API + '/atualizar', categoria)
+    return this.httpClient.put(this.API, categoria)
   }
 
   public excluir(id: number):Observable<boolean> {

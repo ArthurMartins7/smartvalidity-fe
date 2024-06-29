@@ -26,11 +26,11 @@ export class ProdutoService {
 
 
   public salvar(produto: Produto): Observable<any> {
-    return this.httpClient.post<Produto>(this.API + '/inserir', produto)
+    return this.httpClient.post<Produto>(this.API, produto)
   }
 
   public atualizar(produto: Produto):Observable<any> {
-    return this.httpClient.put(this.API + '/atualizar', produto)
+    return this.httpClient.put(this.API, produto)
   }
 
   public excluir(id: number):Observable<boolean> {

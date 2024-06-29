@@ -26,7 +26,7 @@ export class FornecedorService {
 
 
   public salvar(fornecedor: Fornecedor): Observable<any> {
-    return this.httpClient.post<Fornecedor>(this.API + '/inserir', fornecedor)
+    return this.httpClient.post<Fornecedor>(this.API, fornecedor)
   }
 
   public atualizar(fornecedor: Fornecedor):Observable<any> {
