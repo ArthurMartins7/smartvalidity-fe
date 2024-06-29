@@ -31,12 +31,17 @@ export class CorredorDetalheComponent implements OnInit{
   }
 
   salvar(): void {
-    if (this.idCorredor) {
-      this.alterar();
+    if (this.corredor.nome && this.corredor.responsavel) {
+      if (this.idCorredor) {
+        this.alterar();
+      } else {
+        this.inserir();
+      }
     } else {
-      this.inserir();
+      Swal.fire('Preencha todos os campos obrigatórios!', '', 'warning');
     }
   }
+
 
   public inserir(): void {
     this.corredorService.salvar(this.corredor).subscribe(
