@@ -1,1 +1,56 @@
-<p>jhsdasgdusbdusdjasgdsgduszgsuzusgsu</p>
+<div class="container">
+  <pre> {{ itemProduto | json }} </pre>
+  <section class="bg-white">
+    <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16" style="background-color: white;">
+      <h2 class="mb-4 text-xl font-bold text-gray-900 text-center">Cadastrar um novo Item de Produto</h2>
+
+      <form (ngSubmit)="salvar()" #form="ngForm" style="background-color: white;">
+        <div class="grid gap-4 sm:grid-cols-2 sm:gap-6" style="background-color: white;">
+
+          <div class="w-full">
+            <label for="lote" class="block mb-2 text-sm font-medium text-gray-900">Lote:</label>
+            <input [(ngModel)]="itemProduto.lote" type="text" name="lote" id="lote" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+          </div>
+          <div class="w-full">
+            <label for="precoCompra" class="block mb-2 text-sm font-medium text-gray-900">Preço de Compra:</label>
+            <input [(ngModel)]="itemProduto.precoCompra" type="number" name="precoCompra" id="precoCompra" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+          </div>
+
+          <div class="w-full">
+            <label for="precoVenda" class="block mb-2 text-sm font-medium text-gray-900">Preço de Venda:</label>
+            <input [(ngModel)]="itemProduto.precoVenda" type="number" name="precoVenda" id="precoVenda" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+          </div>
+
+          <div class="w-full">
+            <label for="dataFabricacao" class="block mb-2 text-sm font-medium text-gray-900">Data de Fabricação:</label>
+            <input [(ngModel)]="itemProduto.dataFabricacao" type="datetime-local" name="dataFabricacao" id="dataFabricacao" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+          </div>
+
+          <div class="w-full">
+            <label for="dataRecebimento" class="block mb-2 text-sm font-medium text-gray-900">Data de Recebimento:</label>
+            <input [(ngModel)]="itemProduto.dataRecebimento" type="datetime-local" name="dataRecebimento" id="dataRecebimento" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+          </div>
+
+          <div class="w-full">
+            <label for="dataVencimento" class="block mb-2 text-sm font-medium text-gray-900">Data de Vencimento:</label>
+            <input [(ngModel)]="itemProduto.dataVencimento" type="date" name="dataVencimento" id="dataVencimento" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+          </div>
+
+          <div class="w-full">
+            <label for="produto" class="block mb-2 text-sm font-medium text-gray-900">Produto:</label>
+            <select [(ngModel)]="itemProduto.produto" name="produto" id="produto" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+              <option *ngFor="let prod of produto" [ngValue]="prod">{{ prod.descricao }}</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div style="display: flex; justify-content: center; background-color: white;">
+          <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white rounded-lg" style="background-color: #006400; border: none; cursor: pointer;">
+            <span class="text-xl font-bold">Salvar</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

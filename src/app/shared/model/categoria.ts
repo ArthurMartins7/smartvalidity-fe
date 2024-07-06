@@ -5,5 +5,5 @@ export class Categoria {
   idCategoria: number;
   tipo: string;
   corredor: Corredor;
-  produtos: Array<Produto>;
+  produtos: Produto[];
 }

@@ -19,6 +19,14 @@ export class ItemProdutoService {
 
   }
 
+  public salvar(itemProduto: ItemProduto): Observable<any> {
+    return this.httpClient.post<ItemProduto>(this.API, itemProduto)
+  }
+
+  public atualizar(itemProduto: ItemProduto):Observable<any> {
+    return this.httpClient.put(this.API, itemProduto)
+  }
+
   public consultarComSeletor(seletor: ItemProdutoSeletor): Observable <Array<ItemProduto>> {
     return this.httpClient.post<Array<ItemProduto>>(this.API + '/filtro', seletor)
   }

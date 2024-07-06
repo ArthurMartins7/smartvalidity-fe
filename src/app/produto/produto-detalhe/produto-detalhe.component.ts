@@ -10,12 +10,10 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-produto-detalhe',
-  //standalone: true,
-  //imports: [],
   templateUrl: './produto-detalhe.component.html',
-  styleUrl: './produto-detalhe.component.scss'
+  styleUrls: ['./produto-detalhe.component.scss']
 })
-export class ProdutoDetalheComponent implements OnInit{
+export class ProdutoDetalheComponent implements OnInit {
 
   public categoria: Array<Categoria> = new Array();
   public fornecedores: Array<Fornecedor> = new Array();
@@ -33,6 +31,12 @@ export class ProdutoDetalheComponent implements OnInit{
   ngOnInit() {
     this.buscarFornecedores();
     this.buscarCategorias();
+    this.route.params.subscribe((params) => {
+      this.idProduto = params['id'];
+      if (this.idProduto) {
+        this.buscarProduto();
+      }
+    });
   }
 
   buscarFornecedores() {
@@ -45,6 +49,7 @@ export class ProdutoDetalheComponent implements OnInit{
       }
     );
   }
+
   buscarCategorias() {
     this.categoriaService.listarTodos().subscribe(
       (resultado) => {
@@ -55,9 +60,21 @@ export class ProdutoDetalheComponent implements OnInit{
       }
     );
   }
+
+  buscarProduto() {
+    this.produtoService.consultarPorId(this.idProduto).subscribe(
+      (resultado) => {
+        this.produto = resultado;
+      },
+      (erro) => {
+        console.log('Erro ao buscar produto' + erro);
+      }
+    );
+  }
+
   salvar(): void {
     if (this.produto.categoria && this.produto.codigoBarras && this.produto.descricao
-      && this.produto.fornecedores && this.produto.fornecedores && this.produto.marca
+      && this.produto.fornecedores && this.produto.marca
       && this.produto.quantidade && this.produto.unidadeMedida) {
       if (this.idProduto) {
         this.atualizar();
@@ -81,6 +98,7 @@ export class ProdutoDetalheComponent implements OnInit{
       }
     );
   }
+
   public atualizar(): void {
     this.produtoService.atualizar(this.produto).subscribe(
       (resposta) => {
@@ -88,14 +106,10 @@ export class ProdutoDetalheComponent implements OnInit{
         this.voltar();
       },
       (erro) => {
-        Swal.fire(
-          'Erro ao atualizar o produto: ' + erro.error.mensagem,
-          'error'
-        );
+        Swal.fire('Erro ao atualizar o produto!', erro.error.mensagem, 'error');
       }
     );
   }
-
 
   public voltar() {
     this.router.navigate(['/produto']);

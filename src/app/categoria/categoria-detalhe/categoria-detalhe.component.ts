@@ -8,10 +8,8 @@ import { CorredorService } from '../../shared/service/corredor.service';
 
 @Component({
   selector: 'app-categoria-detalhe',
-  //standalone: true,
-  //imports: [],
   templateUrl: './categoria-detalhe.component.html',
-  styleUrl: './categoria-detalhe.component.scss'
+  styleUrls: ['./categoria-detalhe.component.scss']
 })
 export class CategoriaDetalheComponent implements OnInit{
 
@@ -21,9 +19,9 @@ export class CategoriaDetalheComponent implements OnInit{
 
   constructor(
     private categoriaService: CategoriaService,
-    private router: Router, // COMPONENTE PARA FAZER ROTEAMENTO ENTRA AS TELAS
+    private router: Router,
     private corredorService: CorredorService,
-    private route: ActivatedRoute //PEGAR OS PARAMETROS DA URL
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -39,10 +37,11 @@ export class CategoriaDetalheComponent implements OnInit{
         this.corredor = resultado;
       },
       (erro) => {
-        console.error('erro ao consultar todos corredores', erro);
+        console.error('Erro ao consultar todos corredores', erro);
       }
     );
   }
+
   salvar(): void {
     if (this.categoria.tipo && this.categoria.corredor) {
       if (this.idCategoria) {
@@ -54,6 +53,7 @@ export class CategoriaDetalheComponent implements OnInit{
       Swal.fire('Preencha todos os campos obrigatórios!', '', 'warning');
     }
   }
+
   public inserir(): void {
     this.categoriaService.salvar(this.categoria).subscribe(
       (resposta) => {
@@ -74,13 +74,11 @@ export class CategoriaDetalheComponent implements OnInit{
         this.voltar();
       },
       (erro) => {
-        Swal.fire(
-          'Erro ao atualizar a categoria: ' + erro.error.mensagem,
-          'error'
-        );
+        Swal.fire('Erro ao atualizar a categoria!', erro.error.mensagem, 'error');
       }
     );
   }
+
   public buscarCategoria(): void {
     this.categoriaService.consultarPorId(this.idCategoria).subscribe(
       (resultado) => {
@@ -93,6 +91,6 @@ export class CategoriaDetalheComponent implements OnInit{
   }
 
   public voltar() {
-    this.router.navigate(['/pessoas']);
+    this.router.navigate(['/categorias']);
   }
 }
