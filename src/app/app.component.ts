@@ -9,17 +9,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {
   title = 'smartvalidity-fe';
 
-
-  isCadastroDropdownOpen = false;
-  isListagemDropdownOpen = false;
-  isFornecedoresDropdownOpen = false;
-
-  [key: string]: any;
-
- toggleDropdown(dropdown: string) {
-    this[dropdown] = !this[dropdown];
-  }
 }

@@ -1,28 +1,15 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {
-    path: 'item-produto',
-    loadChildren:() => import('./item-produto/item-produto.module').then(m => m.ItemProdutoModule),
+    path: 'home',
+    loadChildren:() => import('./home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'corredor',
-    loadChildren:() => import('./corredor/corredor.module').then(m => m.CorredorModule),
-  },
-
-  {
-    path: 'categoria',
-    loadChildren:() => import('./categoria/categoria.module').then(m => m.CategoriaModule),
+    path: 'login',
+    loadChildren:() => import('./login/login.module').then(m => m.LoginModule),
   },
 
-  {
-    path: 'produto',
-    loadChildren:() => import('./produto/produto.module').then(m => m.ProdutoModule),
-  },
 
-  {
-    path: 'fornecedor',
-    loadChildren:() => import('./fornecedor/fornecedor.module').then(m => m.FornecedorModule),
-  }
 ];
-
