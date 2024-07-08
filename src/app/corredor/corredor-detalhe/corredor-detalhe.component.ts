@@ -4,6 +4,7 @@ import { CorredorService } from '../../shared/service/corredor.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { error } from 'console';
 
 @Component({
   selector: 'app-corredor-detalhe',
@@ -27,7 +28,12 @@ export class CorredorDetalheComponent implements OnInit{
   ){ }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.activatedRoute.params.subscribe((params) => {
+      this.idCorredor = params['id'];
+      if (this.idCorredor) {
+        this.buscarCorredor();
+      }
+    });
   }
 
   salvar(): void {
@@ -56,28 +62,28 @@ export class CorredorDetalheComponent implements OnInit{
     );
   }
 
-  alterar() {
+  alterar():void {
     this.corredorService.atualizar(this.corredor).subscribe(
-      resultado => {
-        Swal.fire({
-          title: "Corredor editado com sucesso!",
-          text: "",
-          icon: "success",
-          showConfirmButton: true,
-          confirmButtonColor: "#ff914d"
-        })
-        this.voltar();
+      (resposta) => {
+        Swal.fire('Corredor atualizado com sucesso!', '', 'success');
+        this.router.navigate(['/corredor/corredor-lista']);
       },
-      erro => {
-        Swal.fire({
-          title: "Erro ao editar corredor",
-          html: erro.error.mensagem,
-          icon: "error",
-          showConfirmButton: true,
-          confirmButtonColor: "#ff914d"
-        })
+      (erro) => {
+        console.log('Erro:' + erro)
+        Swal.fire('Erro', erro.error.mensagem, 'error')
       }
-    )
+    );
+  }
+
+  public buscarCorredor(): void {
+    this.corredorService.consultarPorId(this.idCorredor).subscribe(
+      (resposta) => {
+        this.corredor = resposta;
+      },
+      (erro) => {
+        Swal.fire('Erro ao buscar um corredor!', erro, 'error');
+      }
+    );
   }
 
   voltar(): void {
