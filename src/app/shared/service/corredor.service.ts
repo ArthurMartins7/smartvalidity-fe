@@ -29,11 +29,11 @@ export class CorredorService {
     return this.httpClient.post<Corredor>(this.API, corredor)
   }
 
-  public atualizar(corredor: Corredor):Observable<any> {
-    return this.httpClient.put(this.API + '/atualizar', corredor)
+  public atualizar(corredor: Corredor):Observable<boolean> {
+    return this.httpClient.put<boolean>(this.API +'/alterar', corredor)
   }
 
   public excluir(id: number): Observable<boolean> {
-    return this.httpClient.delete<boolean>(`${this.API}/${id}`);
+    return this.httpClient.delete<boolean>(this.API +'/'+id);
   }
 }
