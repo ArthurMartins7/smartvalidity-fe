@@ -18,17 +18,25 @@
     <table class="table-auto w-full bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg">
       <thead>
         <tr class="bg-gray-100">
-          <th class="px-4 py-2 text-center text-gray-900">Categoria</th>
+          <th class="px-4 py-2 text-center text-gray-900">Código de barras</th>
+          <th class="px-4 py-2 text-center text-gray-900">Descrição</th>
+          <th class="px-4 py-2 text-center text-gray-900">Marca</th>
+          <th class="px-4 py-2 text-center text-gray-900">Unidade de medida</th>
+          <th class="px-4 py-2 text-center text-gray-900">Quantidade</th>
           <th class="px-4 py-2 text-center text-gray-900">Ações</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="border-t border-gray-200" *ngFor="let categoria of categorias">
-          <td class="px-4 py-2 text-center text-gray-900">{{ categoria.tipo }}</td>
+        <tr class="border-t border-gray-200" *ngFor="let produto of produtos">
+          <td class="px-4 py-2 text-center text-gray-900">{{ produto.codigoBarras}}</td>
+          <td class="px-4 py-2 text-center text-gray-900">{{ produto.descricao}}</td>
+          <td class="px-4 py-2 text-center text-gray-900">{{ produto.marca}}</td>
+          <td class="px-4 py-2 text-center text-gray-900">{{ produto.unidadeMedida}}</td>
+          <td class="px-4 py-2 text-center text-gray-900">{{ produto.quantidade}}</td>
           <td class="px-4 py-2 text-center">
             <div class="flex justify-center space-x-2">
-              <button class="btn btn-outline-success text-green-600 border-green-600 px-4 py-2 rounded-lg hover:bg-green-600 hover:text-white" (click)="editar(categoria.idCategoria)">Editar</button>
-              <button class="btn btn-outline-danger text-red-600 border-red-600 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white" (click)="excluir(categoria)">Excluir</button>
+              <button class="btn btn-outline-success text-green-600 border-green-600 px-4 py-2 rounded-lg hover:bg-green-600 hover:text-white" (click)="editar(produto.idProduto)">Editar</button>
+              <button class="btn btn-outline-danger text-red-600 border-red-600 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white" (click)="excluir(produto)">Excluir</button>
             </div>
           </td>
         </tr>
