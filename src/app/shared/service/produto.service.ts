@@ -10,7 +10,7 @@ import { Produto } from '../model/produto';
 export class ProdutoService {
 
   //http://localhost:8080/SmartValidity
-  private readonly API = 'http://localhost:8080/SmartValidity/rest/produto';
+  private readonly API = 'http://localhost:8080/SmartValidity/rest/restrito/produto';
 
   constructor(private httpClient: HttpClient) { }
 

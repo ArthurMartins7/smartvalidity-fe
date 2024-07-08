@@ -10,7 +10,7 @@ import { Categoria } from '../model/categoria';
 export class CategoriaService {
 
   //http://localhost:8080/SmartValidity
-  private readonly API = 'http://localhost:8080/SmartValidity/rest/categoria';
+  private readonly API = 'http://localhost:8080/SmartValidity/rest/restrito/categoria';
 
   constructor(private httpClient: HttpClient) { }
 

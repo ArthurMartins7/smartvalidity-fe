@@ -6,11 +6,12 @@ module.exports = {
   theme: {
     colors: {
       ...require('tailwindcss/colors'),
-      'rentlaranja': '#ff914d',
+      'smartverdehover' : '#16a34a',
+      'smartverde' : '#15803d',
       'rentazul': '#9ca3af',
-      'rentbranco': '#ffffff',
-      'rentcinza': '#cccccc',
-      'rentpreto': '#000000'
+      'smartbranco': '#ffffff',
+      'smartcinza': '#cccccc',
+      'smartpreto': '#000000'
     },
     extend: {
       boxShadow: {

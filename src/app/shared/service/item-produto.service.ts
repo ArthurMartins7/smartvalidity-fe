@@ -11,7 +11,7 @@ import { ItemProdutoSeletor } from '../model/seletor/itemProduto.seletor';
 export class ItemProdutoService {
 
   //http://localhost:8080/SmartValidity
-  private readonly API = 'http://localhost:8080/SmartValidity/rest/itemProduto';
+  private readonly API = 'http://localhost:8080/SmartValidity/rest/restrito/itemProduto';
 
   constructor(private httpClient: HttpClient) { }
   public listarTodos(): Observable <Array<ItemProduto>> {
