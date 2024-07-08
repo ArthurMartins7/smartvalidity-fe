@@ -51,7 +51,7 @@ export class CorredorDetalheComponent implements OnInit{
         this.voltar();
       },
       (erro) => {
-        Swal.fire('Erro ao salvar um corredor!', erro, 'error');
+        Swal.fire('Erro ao salvar um corredor!', erro.error.mensagem, 'error');
       }
     );
   }
