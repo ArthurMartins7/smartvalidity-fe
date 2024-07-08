@@ -10,7 +10,7 @@ import { Fornecedor } from '../model/fornecedor';
 export class FornecedorService {
 
   //http://localhost:8080/SmartValidity
-  private readonly API = 'http://localhost:8080/SmartValidity/rest/fornecedor';
+  private readonly API = 'http://localhost:8080/SmartValidity/rest/restrito/fornecedor';
 
   constructor(private httpClient: HttpClient) { }
 

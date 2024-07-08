@@ -1,0 +1,71 @@
+<div class="flex">
+  <div class="w-64">
+    <aside id="sidebar-multi-level-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen shadow-custom-direction" aria-label="Sidebar">
+      <div class="h-full px-3 py-4 overflow-y-auto bg-smartverde">
+        <a href="#" class="flex flex-col items-center p-2 text-rentbranco rounded-lg group mb-6">
+          <span class="text-xl flex-1 ms-3 whitespace-nowrap font-bold">SmartValidity</span>
+        </a>
+        <ul class="flex flex-col px-7 space-y-2 font-bold gap-y-6">
+          <li>
+            <button (click)="toggleDropdown('isCadastroDropdownOpen')" class="w-full text-left flex items-center p-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+              <img width="30" height="30" src="https://img.icons8.com/?size=100&id=24717&format=png&color=FFFFFF" alt="home-page"/>
+              <span class="text-xl flex-1 ms-3 whitespace-nowrap">Cadastro</span>
+            </button>
+            <ul *ngIf="isCadastroDropdownOpen" class="mt-2 space-y-2 pl-8">
+              <li>
+                <a href="/home/corredor/corredor-detalhe" class="block font-normal px-4 py-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Corredor</a>
+              </li>
+              <li>
+                <a href="/home/categoria/categoria-detalhe" class="block font-normal px-4 py-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Categoria</a>
+              </li>
+              <li>
+                <a href="/home/produto/produto-detalhe" class="block font-normal px-4 py-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Produto</a>
+              </li>
+              <li>
+                <a href="/home/item-produto/detalhe" class="block font-normal px-4 py-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Item Produto</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <button (click)="toggleDropdown('isListagemDropdownOpen')" class="w-full text-left flex items-center p-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+              <img width="30" height="30" src="https://img.icons8.com/?size=100&id=132&format=png&color=FFFFFF" alt="sell-property--v1"/>
+              <span class="text-xl flex-1 ms-3 whitespace-nowrap">Listagem</span>
+            </button>
+            <ul *ngIf="isListagemDropdownOpen" class="mt-2 space-y-2 pl-8">
+              <li>
+                <a href="/home/corredor/corredor-listagem" class="block font-normal px-4 py-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Corredor</a>
+              </li>
+              <li>
+                <a href="/home/categoria/categoria-listagem" class="block font-normal px-4 py-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Categoria</a>
+              </li>
+              <li>
+                <a href="/home/produto/produto-listagem" class="block font-normal px-4 py-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Produto</a>
+              </li>
+              <li>
+                <a href="/home/item-produto" class="block font-normal px-4 py-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Item Produto</a>
+              </li>
+
+            </ul>
+          </li>
+          <li>
+            <button (click)="toggleDropdown('isFornecedoresDropdownOpen')" class="w-full text-left flex items-center p-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+              <img width="30" height="30" src="https://img.icons8.com/?size=100&id=8953&format=png&color=FFFFFF" alt="map-marker"/>
+              <span class="text-xl flex-1 ms-3 whitespace-nowrap">Fornecedores</span>
+            </button>
+            <ul *ngIf="isFornecedoresDropdownOpen" class="mt-2 space-y-2 pl-8">
+              <li>
+                <a href="/home/fornecedor/fornecedor-listagem" class="block font-normal px-4 py-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Listagem</a>
+              </li>
+              <li>
+                <a href="/home/fornecedor/fornecedor-detalhe" class="block font-normal px-4 py-2 text-smartbranco rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Cadastro</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <div class="flex-1">
+    <router-outlet></router-outlet>
+  </div>
+</div>

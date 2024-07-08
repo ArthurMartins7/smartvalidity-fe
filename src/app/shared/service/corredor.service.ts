@@ -10,7 +10,7 @@ import { Corredor } from '../model/corredor';
 export class CorredorService {
 
   //http://localhost:8080/SmartValidity
-  private readonly API = 'http://localhost:8080/SmartValidity/rest/corredor';
+  private readonly API = 'http://localhost:8080/SmartValidity/rest/restrito/corredor';
 
   constructor(private httpClient: HttpClient) { }
 
