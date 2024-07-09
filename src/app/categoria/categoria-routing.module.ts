@@ -5,7 +5,9 @@ import { CategoriaListagemComponent } from './categoria-listagem/categoria-lista
 
 const routes: Routes = [
   {path:'categoria-detalhe', component: CategoriaDetalheComponent},
-  {path:'categoria-listagem', component: CategoriaListagemComponent}
+  {path:'categoria-listagem', component: CategoriaListagemComponent},
+  {path:'categoria-detalhe/:id', component: CategoriaDetalheComponent}
+
 
 
 ];

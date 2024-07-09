@@ -67,7 +67,7 @@ export class CategoriaListagemComponent implements OnInit {
   }
 
   public editar(idCategoriaSelecionado: number) {
-    this.router.navigate(['/categoria/categoria-detalhe/', idCategoriaSelecionado]);
+    this.router.navigate(['home/categoria/categoria-detalhe/', idCategoriaSelecionado]);
   }
 
 }

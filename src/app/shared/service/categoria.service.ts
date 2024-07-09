@@ -33,7 +33,7 @@ export class CategoriaService {
     return this.httpClient.put(this.API, categoria)
   }
 
-  public excluir(id: number):Observable<boolean> {
-    return this.httpClient.delete<boolean>(this.API + "/excluir/" + id);
+  public excluir(id: number): Observable<boolean> {
+    return this.httpClient.delete<boolean>(this.API +'/'+id);
   }
 }

@@ -6,7 +6,8 @@ import { CorredorListagemComponent } from './corredor-listagem/corredor-listagem
 const routes: Routes = [
   {path:'corredor-listagem', component: CorredorListagemComponent},
   {path:'corredor-detalhe', component: CorredorDetalheComponent},
-  {path:'corredor-detalhe/:id', component: CorredorDetalheComponent},
+  {path:'corredor-detalhe/:id', component: CorredorDetalheComponent}
+
 ];
 
 @NgModule({

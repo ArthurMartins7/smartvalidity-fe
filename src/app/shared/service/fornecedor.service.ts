@@ -29,9 +29,10 @@ export class FornecedorService {
     return this.httpClient.post<Fornecedor>(this.API, fornecedor)
   }
 
-  public atualizar(fornecedor: Fornecedor):Observable<any> {
-    return this.httpClient.put(this.API + '/atualizar', fornecedor)
+  public atualizar(fornecedor: Fornecedor): Observable<any> {
+    return this.httpClient.put(`${this.API}/${fornecedor.idFornecedor}`, fornecedor);
   }
+
 
   public excluir(id: number): Observable<boolean> {
     return this.httpClient.delete<boolean>(`${this.API}/${id}`);

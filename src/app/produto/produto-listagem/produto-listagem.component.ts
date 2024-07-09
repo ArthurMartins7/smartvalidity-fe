@@ -71,7 +71,7 @@ export class ProdutoListagemComponent implements OnInit {
   }
 
   public editar(idProdutoSelecionado: number) {
-    this.router.navigate(['/produto/produto-detalhe/', idProdutoSelecionado]);
+    this.router.navigate(['home/produto/produto-detalhe/', idProdutoSelecionado]);
   }
 
 }

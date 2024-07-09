@@ -75,7 +75,7 @@ export class FornecedorListagemComponent implements OnInit {
   }
 
   public editar(idFornecedorSelecionado: number) {
-    this.router.navigate(['/fornecedor/fornecedor-detalhe/', idFornecedorSelecionado]);
+    this.router.navigate(['home/fornecedor/fornecedor-detalhe/', idFornecedorSelecionado]);
   }
 
 }

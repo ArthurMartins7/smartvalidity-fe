@@ -25,7 +25,23 @@ export class FornecedorDetalheComponent implements OnInit{
   ){ }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.activatedRoute.params.subscribe(params => {
+      this.idFornecedor = +params['id'];
+      if (this.idFornecedor) {
+        this.carregarFornecedor();
+      }
+    });
+  }
+
+  carregarFornecedor(): void {
+    this.fornecedorService.consultarPorId(this.idFornecedor).subscribe(
+      (resposta) => {
+        this.fornecedor = resposta;
+      },
+      (erro) => {
+        Swal.fire('Erro ao carregar fornecedor!', erro, 'error');
+      }
+    );
   }
 
   salvar(): void {
@@ -40,10 +56,10 @@ export class FornecedorDetalheComponent implements OnInit{
     }
   }
 
-public inserir(): void {
+
+  inserir(): void {
     this.fornecedorService.salvar(this.fornecedor).subscribe(
       (resposta) => {
-        this.fornecedor = resposta;
         Swal.fire('Fornecedor salvo com sucesso!', '', 'success');
         this.voltar();
       },

@@ -73,6 +73,6 @@ export class CorredorListagemComponent implements OnInit{
   }
 
   public editar(idCorredorSelecionado: number) {
-    this.router.navigate(['/home/corredor/corredor-detalhe/', idCorredorSelecionado]);
+    this.router.navigate(['home/corredor/corredor-detalhe/', idCorredorSelecionado]);
   }
 }

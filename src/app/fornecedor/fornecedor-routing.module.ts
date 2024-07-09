@@ -5,7 +5,8 @@ import { FornecedorListagemComponent } from './fornecedor-listagem/fornecedor-li
 
 const routes: Routes = [
   {path: "fornecedor-detalhe", component: FornecedorDetalheComponent},
-  {path: "fornecedor-listagem", component: FornecedorListagemComponent}
+  {path: "fornecedor-listagem", component: FornecedorListagemComponent},
+  {path:'fornecedor-detalhe/:id', component: FornecedorDetalheComponent}
 
 ];
 
