@@ -14,10 +14,14 @@
           </div>
           <div>
             <label for="nomeCorredor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome do corredor:</label>
-            <select [(ngModel)]="categoria.corredor" name="responsavel" id="nomeCorredor" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              <option *ngFor="let corredor of corredores" [ngValue]="corredor">{{ corredor.nome }}</option>
+            <select [(ngModel)]="seletor.nomeCorredor" type="text" name="nomeCorredor" id="nomeCorredor"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    @for (corredor of corredores; track corredor.idCorredor) {
+                      <option value="{{ corredor.nome }}">{{ corredor.nome }}</option>
+                    }
             </select>
           </div>
+
 
           <div class="flex justify-center space-x-4">
           <div class="w-40">

@@ -43,7 +43,7 @@ export class CategoriaService {
   }
 
   contarRegistros(seletor: CategoriaSeletor): Observable<number>{
-    return this.httpClient.post<number>(this.API + '/total-registros', seletor)
+    return this.httpClient.post<number>(this.API + '/contar', seletor)
   }
 
   contarPaginas(seletor: CategoriaSeletor): Observable<number>{
