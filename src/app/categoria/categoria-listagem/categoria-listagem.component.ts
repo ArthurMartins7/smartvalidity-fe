@@ -5,6 +5,7 @@ import { CategoriaService } from '../../shared/service/categoria.service';
 import { CorredorService } from '../../shared/service/corredor.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { CategoriaSeletor } from '../../shared/model/seletor/categoria';
 
 @Component({
   selector: 'app-categoria-listagem',
@@ -20,17 +21,32 @@ export class CategoriaListagemComponent implements OnInit {
   public categoria: Categoria = new Categoria();
   public idCategoria: number;
 
+  public seletor: CategoriaSeletor = new CategoriaSeletor();
+
+  public totalPaginas: number;
+  public totalRegistros: number;
+  public offset: number;
+  public readonly TAMANHO_PAGINA: number = 3;
+
   constructor(
     private categoriaService: CategoriaService,
-    private router: Router,
     private corredorService: CorredorService,
-    private route: ActivatedRoute
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
     this.consultarTodosCategorias();
-  }
 
+    this.corredorService.listarTodos().subscribe(
+      (resultado) => {
+        this.corredores = resultado;
+      },
+      (erro) => {
+        console.error('Erro ao consultar todos corredores', erro);
+      }
+    );
+
+  }
 
   public consultarTodosCategorias() {
     this.categoriaService.listarTodos().subscribe(
@@ -41,6 +57,25 @@ export class CategoriaListagemComponent implements OnInit {
         console.error('Erro ao consultar todos as categorias', erro.error.mensagem);
       }
     );
+  }
+
+  public pesquisar() {
+    this.categoriaService.consultarComSeletor(this.seletor).subscribe(
+      (resultado) => {
+        this.categorias = resultado;
+        this.contarRegistros()
+      },
+      (erro) => {
+        console.error('Erro ao buscar categorias', erro.error.mensagem);
+      }
+    );
+    this.contarPaginas()
+  }
+
+  public limpar() {
+    this.seletor = new CategoriaSeletor();
+    this.seletor.limite = this.TAMANHO_PAGINA;
+    this.seletor.pagina = 1;
   }
 
   public excluir(categoriaSelecionada: Categoria) {
@@ -68,6 +103,38 @@ export class CategoriaListagemComponent implements OnInit {
 
   public editar(idCategoriaSelecionado: number) {
     this.router.navigate(['home/categoria/categoria-detalhe/', idCategoriaSelecionado]);
+  }
+
+  contarRegistros(){
+    this.categoriaService.contarRegistros(this.seletor).subscribe(
+      (count: number) => {
+        this.totalRegistros = count
+      },
+      erro => {
+        console.log('Erro ao contar registros de categoria', erro.error.mensagem)
+      }
+    )
+  }
+
+  proximaPg(){
+    this.seletor.pagina++;
+    this.pesquisar();
+  }
+
+  voltarPg(){
+    this.seletor.pagina--;
+    this.pesquisar();
+  }
+
+  contarPaginas(){
+    this.categoriaService.contarPaginas(this.seletor).subscribe(
+      (count: number) => {
+        this.totalPaginas = count
+      },
+      erro => {
+        console.log('Erro ao contar paginas de categoria', erro.error.mensagem)
+      }
+    )
   }
 
 }
