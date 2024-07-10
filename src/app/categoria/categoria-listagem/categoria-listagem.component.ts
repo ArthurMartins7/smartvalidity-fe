@@ -60,6 +60,7 @@ export class CategoriaListagemComponent implements OnInit {
   }
 
   public pesquisar() {
+    console.log('Valor selecionado:', this.seletor.nomeCorredor);
     this.categoriaService.consultarComSeletor(this.seletor).subscribe(
       (resultado) => {
         this.categorias = resultado;
