@@ -10,8 +10,10 @@ module.exports = {
       'smartverde' : '#15803d',
       'rentazul': '#9ca3af',
       'smartbranco': '#ffffff',
-      'smartcinza': '#cccccc',
-      'smartpreto': '#000000'
+      'smartcinza': '#4b5563',
+      'smartpreto': '#000000',
+      'smartamarelo':'#737373',
+      'smartvermelho': '#dc2626',
     },
     extend: {
       boxShadow: {

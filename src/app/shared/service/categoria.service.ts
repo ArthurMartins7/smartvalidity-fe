@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Categoria } from '../model/categoria';
+import { CategoriaSeletor } from '../model/seletor/categoria';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +37,17 @@ export class CategoriaService {
   public excluir(id: number): Observable<boolean> {
     return this.httpClient.delete<boolean>(this.API +'/'+id);
   }
+
+  consultarComSeletor(seletor: CategoriaSeletor): Observable<Array<Categoria>>{
+    return this.httpClient.post<Array<Categoria>>(this.API + '/filtro', seletor)
+  }
+
+  contarRegistros(seletor: CategoriaSeletor): Observable<number>{
+    return this.httpClient.post<number>(this.API + '/total-registros', seletor)
+  }
+
+  contarPaginas(seletor: CategoriaSeletor): Observable<number>{
+    return this.httpClient.post<number>(this.API + '/total-paginas', seletor)
+  }
+
 }

@@ -13,7 +13,7 @@ import { CorredorService } from '../../shared/service/corredor.service';
 })
 export class CategoriaDetalheComponent implements OnInit{
 
-  public corredor: Array<Corredor> = new Array();
+  public corredores: Array<Corredor> = new Array();
   public categoria: Categoria = new Categoria();
   public idCategoria: number;
 
@@ -34,7 +34,7 @@ export class CategoriaDetalheComponent implements OnInit{
 
     this.corredorService.listarTodos().subscribe(
       (resultado) => {
-        this.corredor = resultado;
+        this.corredores = resultado;
       },
       (erro) => {
         console.error('Erro ao consultar todos corredores', erro);
