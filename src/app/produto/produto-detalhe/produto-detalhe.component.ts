@@ -112,6 +112,6 @@ export class ProdutoDetalheComponent implements OnInit {
   }
 
   public voltar() {
-    this.router.navigate(['/produto']);
+    this.router.navigate(['home/produto/produto-listagem']);
   }
 }

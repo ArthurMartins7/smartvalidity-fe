@@ -87,7 +87,7 @@ export class CorredorDetalheComponent implements OnInit{
   }
 
   voltar(): void {
-    this.router.navigate(['/corredor/corredor-listagem'])
+    this.router.navigate(['home/corredor/corredor-listagem'])
   }
 
 }

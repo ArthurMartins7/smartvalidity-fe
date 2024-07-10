@@ -91,6 +91,6 @@ export class CategoriaDetalheComponent implements OnInit{
   }
 
   public voltar() {
-    this.router.navigate(['/categorias']);
+    this.router.navigate(['home/categoria/categoria-listagem']);
   }
 }
