@@ -1,59 +1,55 @@
-<div class="container">
-  <pre> {{ produto | json }} </pre>
-  <form (ngSubmit)="salvar()" #form="ngForm">
-    <section class="bg-white">
-      <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16" style="background-color: white;">
-        <h2 class="mb-4 text-xl font-bold text-gray-900 text-center">Cadastrar um novo Produto</h2>
+<div class="container flex justify-center items-center h-screen">
+  <section class="bg-white w-full max-w-2xl px-4 py-8 lg:py-16 rounded-lg shadow-lg">
+    <h2 class="text-xl font-bold text-gray-900 text-center mb-4">Cadastrar um novo Produto</h2>
 
-        <div class="grid gap-4 sm:grid-cols-2 sm:gap-6" style="background-color: white;">
-
-          <div class="w-full">
-            <label for="descricao" class="block mb-2 text-sm font-medium text-gray-900">Descrição:</label>
-            <input [(ngModel)]="produto.descricao" type="text" name="descricao" id="descricao" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
-          </div>
-          <div class="w-full">
-            <label for="marca" class="block mb-2 text-sm font-medium text-gray-900">Marca:</label>
-            <input [(ngModel)]="produto.marca" type="text" name="marca" id="marca" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
-          </div>
-
-          <div class="w-full">
-            <label for="unidadeMedida" class="block mb-2 text-sm font-medium text-gray-900">Unidade de Medida:</label>
-            <input [(ngModel)]="produto.unidadeMedida" type="text" name="unidadeMedida" id="unidadeMedida" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
-          </div>
-          <div class="w-full">
-            <label for="quantidade" class="block mb-2 text-sm font-medium text-gray-900">Quantidade:</label>
-            <input [(ngModel)]="produto.quantidade" type="number" name="quantidade" id="quantidade" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
-          </div>
-
-          <div class="w-full">
-            <label for="codigoBarras" class="block mb-2 text-sm font-medium text-gray-900">Código de Barras:</label>
-            <input [(ngModel)]="produto.codigoBarras" type="text" name="codigoBarras" id="codigoBarras" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
-          </div>
-          <div class="w-full">
-            <label for="categoria" class="block mb-2 text-sm font-medium text-gray-900">Categoria:</label>
-            <select [(ngModel)]="produto.categoria" name="categoria" id="categoria" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
-              <option *ngFor="let cat of categoria" [ngValue]="cat">{{ cat.tipo }}</option>
-            </select>
-          </div>
-
-          <div class="w-full">
-            <label for="fornecedores" class="block mb-2 text-sm font-medium text-gray-900">Fornecedores:</label>
-            <select [(ngModel)]="produto.fornecedores" name="fornecedores" id="fornecedores" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
-              <option *ngFor="let fornecedor of fornecedores" [ngValue]="fornecedor">{{ fornecedor.nome }}</option>
-            </select>
-          </div>
-
+    <form (ngSubmit)="salvar()" #form="ngForm">
+      <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+        <div class="w-full">
+          <label for="descricao" class="block mb-2 text-sm font-medium text-gray-900">Descrição:</label>
+          <input [(ngModel)]="produto.descricao" type="text" name="descricao" id="descricao" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+        </div>
+        <div class="w-full">
+          <label for="marca" class="block mb-2 text-sm font-medium text-gray-900">Marca:</label>
+          <input [(ngModel)]="produto.marca" type="text" name="marca" id="marca" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
         </div>
 
-        <div style="display: flex; justify-content: center; background-color: white;">
-          <button (click)="voltar()" type="button" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white rounded-lg" style="background-color: #808080; border: none; cursor: pointer; margin-right: 10px;">
-            <span class="text-xl font-bold">Voltar</span>
-          </button>
-          <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white rounded-lg" style="background-color: #006400; border: none; cursor: pointer;">
-            <span class="text-xl font-bold">Salvar</span>
-          </button>
+        <div class="w-full">
+          <label for="unidadeMedida" class="block mb-2 text-sm font-medium text-gray-900">Unidade de Medida:</label>
+          <input [(ngModel)]="produto.unidadeMedida" type="text" name="unidadeMedida" id="unidadeMedida" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
         </div>
+        <div class="w-full">
+          <label for="quantidade" class="block mb-2 text-sm font-medium text-gray-900">Quantidade:</label>
+          <input [(ngModel)]="produto.quantidade" type="number" name="quantidade" id="quantidade" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+        </div>
+
+        <div class="w-full">
+          <label for="codigoBarras" class="block mb-2 text-sm font-medium text-gray-900">Código de Barras:</label>
+          <input [(ngModel)]="produto.codigoBarras" type="text" name="codigoBarras" id="codigoBarras" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+        </div>
+        <div class="w-full">
+          <label for="categoria" class="block mb-2 text-sm font-medium text-gray-900">Categoria:</label>
+          <select [(ngModel)]="produto.categoria" name="categoria" id="categoria" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+            <option *ngFor="let cat of categoria" [ngValue]="cat">{{ cat.tipo }}</option>
+          </select>
+        </div>
+
+        <div class="w-full">
+          <label for="fornecedores" class="block mb-2 text-sm font-medium text-gray-900">Fornecedores:</label>
+          <select [(ngModel)]="produto.fornecedores" name="fornecedor" id="fornecedor" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+            <option *ngFor="let fornecedor of fornecedores" [ngValue]="fornecedor">{{ fornecedor.nome }}</option>
+          </select>
+        </div>
+
       </div>
-    </section>
-  </form>
+
+      <div class="flex justify-center mt-6">
+        <button (click)="voltar()" type="button" class="inline-flex items-center px-5 py-2.5 mr-4 text-sm font-medium text-white bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50">
+          <span class="text-xl font-bold">Voltar</span>
+        </button>
+        <button type="submit" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-white bg-green-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+          <span class="text-xl font-bold">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </section>
 </div>

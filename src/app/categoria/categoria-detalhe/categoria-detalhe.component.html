@@ -1,33 +1,29 @@
-<div class="container">
-  <section class="bg-white">
-    <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16" style="background-color: white;">
-      <h2 class="mb-4 text-xl font-bold text-gray-900 text-center">Cadastrar uma nova Categoria</h2>
+<div class="container flex justify-center items-center h-screen">
+  <section class="bg-white w-full max-w-2xl px-4 py-8 lg:py-16 rounded-lg shadow-lg">
+    <h2 class="text-xl font-bold text-gray-900 text-center mb-4">Cadastrar uma nova Categoria</h2>
 
-      <form (ngSubmit)="salvar()" #form="ngForm" style="background-color: white;">
-        <div class="grid gap-4 sm:grid-cols-2 sm:gap-6" style="background-color: white;">
-
-          <div class="w-full">
-            <label for="tipo" class="block mb-2 text-sm font-medium text-gray-900">Tipo:</label>
-            <input [(ngModel)]="categoria.tipo" type="text" name="tipo" id="tipo" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
-          </div>
-          
-          <div class="w-full">
-            <label for="nomeCorredor" class="block mb-2 text-sm font-medium text-gray-900">Nome do Corredor:</label>
-            <select [(ngModel)]="categoria.corredor" name="nomeCorredor" id="nomeCorredor" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
-              <option *ngFor="let corredor of corredores" [ngValue]="corredor">{{ corredor.nome }}</option>
-            </select>
-          </div>
-
+    <form (ngSubmit)="salvar()" #form="ngForm">
+      <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+        <div class="w-full">
+          <label for="tipo" class="block mb-2 text-sm font-medium text-gray-900">Tipo:</label>
+          <input [(ngModel)]="categoria.tipo" type="text" name="tipo" id="tipo" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
         </div>
-        <div style="display: flex; justify-content: center; background-color: white;">
-          <button (click)="voltar()" type="button" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white rounded-lg" style="background-color: #808080; border: none; cursor: pointer; margin-right: 10px;">
-            <span class="text-xl font-bold">Voltar</span>
-          </button>
-          <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white rounded-lg" style="background-color: #006400; border: none; cursor: pointer;">
-            <span class="text-xl font-bold">Salvar</span>
-          </button>
+        <div class="w-full">
+          <label for="nomeCorredor" class="block mb-2 text-sm font-medium text-gray-900">Nome do Corredor:</label>
+          <select [(ngModel)]="categoria.corredor" name="nomeCorredor" id="nomeCorredor" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+            <option *ngFor="let corredor of corredores" [ngValue]="corredor">{{ corredor.nome }}</option>
+          </select>
         </div>
-      </form>
-    </div>
+      </div>
+
+      <div class="flex justify-center mt-6">
+        <button (click)="voltar()" type="button" class="inline-flex items-center px-5 py-2.5 mr-4 text-sm font-medium text-white bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50">
+          <span class="text-xl font-bold">Voltar</span>
+        </button>
+        <button type="submit" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-white bg-green-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+          <span class="text-xl font-bold">Salvar</span>
+        </button>
+      </div>
+    </form>
   </section>
 </div>

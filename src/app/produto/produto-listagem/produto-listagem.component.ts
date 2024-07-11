@@ -44,7 +44,7 @@ export class ProdutoListagemComponent implements OnInit {
     this.seletor.limite = this.TAMANHO_PAGINA;
     this.seletor.pagina = 1;
 
-    this.consultarTodosProdutos();
+    //this.consultarTodosProdutos();
 
     this.corredorService.listarTodos().subscribe(
       (resultado) => {
@@ -64,6 +64,7 @@ export class ProdutoListagemComponent implements OnInit {
       }
     );
 
+    this.pesquisar();
     this.contarPaginas();
   }
 
@@ -86,7 +87,7 @@ export class ProdutoListagemComponent implements OnInit {
     this.produtoService.consultarComSeletor(this.seletor).subscribe(
       (resultado) => {
         this.produtos = resultado;
-        this.contarRegistros()
+        //this.contarRegistros()
       },
       (erro) => {
         console.error('Erro ao buscar produtos', erro.error.mensagem);

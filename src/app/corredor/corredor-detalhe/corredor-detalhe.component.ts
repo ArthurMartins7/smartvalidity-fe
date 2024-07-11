@@ -48,6 +48,10 @@ export class CorredorDetalheComponent implements OnInit{
     }
   }
 
+  public voltar() {
+    this.router.navigate(['home/corredor/corredor-listagem'])
+  }
+
 
   public inserir(): void {
     this.corredorService.salvar(this.corredor).subscribe(
@@ -66,7 +70,8 @@ export class CorredorDetalheComponent implements OnInit{
     this.corredorService.atualizar(this.corredor).subscribe(
       (resposta) => {
         Swal.fire('Corredor atualizado com sucesso!', '', 'success');
-        this.router.navigate(['/corredor/corredor-lista']);
+        this.voltar();
+        //this.router.navigate(['/corredor/corredor-lista']);
       },
       (erro) => {
         console.log('Erro:' + erro)
@@ -84,10 +89,6 @@ export class CorredorDetalheComponent implements OnInit{
         Swal.fire('Erro ao buscar um corredor!', erro, 'error');
       }
     );
-  }
-
-  voltar(): void {
-    this.router.navigate(['home/corredor/corredor-listagem'])
   }
 
 }
