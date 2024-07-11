@@ -91,5 +91,4 @@ export class CorredorDetalheComponent implements OnInit{
     );
   }
 
-
 }

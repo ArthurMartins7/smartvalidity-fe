@@ -94,6 +94,6 @@ export class FornecedorDetalheComponent implements OnInit{
   }
 
   voltar(): void {
-    this.router.navigate(['/fornecedor/fornecedor-listagem'])
+    this.router.navigate(['home/fornecedor/fornecedor-listagem'])
   }
 }

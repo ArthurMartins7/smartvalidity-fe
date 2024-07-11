@@ -114,5 +114,5 @@ export class ProdutoDetalheComponent implements OnInit {
       }
     );
   }
-  
+
 }

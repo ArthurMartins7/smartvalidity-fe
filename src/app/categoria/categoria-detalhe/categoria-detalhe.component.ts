@@ -93,6 +93,4 @@ export class CategoriaDetalheComponent implements OnInit{
       }
     );
   }
-
-
 }
