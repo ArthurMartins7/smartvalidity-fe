@@ -54,6 +54,10 @@ export class CategoriaDetalheComponent implements OnInit{
     }
   }
 
+  public voltar() {
+    this.router.navigate(['home/categoria/categoria-listagem']);
+  }
+
   public inserir(): void {
     this.categoriaService.salvar(this.categoria).subscribe(
       (resposta) => {
@@ -90,7 +94,5 @@ export class CategoriaDetalheComponent implements OnInit{
     );
   }
 
-  public voltar() {
-    this.router.navigate(['/categorias']);
-  }
+
 }

@@ -32,8 +32,14 @@ export class CorredorListagemComponent implements OnInit{
   ){ }
 
   ngOnInit(): void {
-    this.pesquisar();
+    this.seletor.limite = this.TAMANHO_PAGINA;
+    this.seletor.pagina = 1;
+
     this.consultarTodosCorredores();
+
+    this.pesquisar();
+    this.contarPaginas();
+
   }
 
   public consultarTodosCorredores() {
@@ -51,7 +57,7 @@ export class CorredorListagemComponent implements OnInit{
     this.corredorService.consultarComSeletor(this.seletor).subscribe(
       (resultado) => {
         this.corredores = resultado;
-        this.contarRegistros()
+        //this.contarRegistros()
       },
       (erro) => {
         console.error('Erro ao buscar corredores', erro.error.mensagem);
@@ -104,6 +110,11 @@ export class CorredorListagemComponent implements OnInit{
     )
   }
 
+  atualizarPaginacao() {
+    this.contarPaginas();
+    this.pesquisar();
+  }
+
   proximaPg(){
     this.seletor.pagina++;
     this.pesquisar();
@@ -113,6 +124,17 @@ export class CorredorListagemComponent implements OnInit{
     this.seletor.pagina--;
     this.pesquisar();
   }
+
+  irParaPagina(indicePagina: number) {
+    this.seletor.pagina = indicePagina;
+    this.pesquisar();
+  }
+
+   // Método para criar um array de páginas para ser utilizado no ngFor do HTML
+   criarArrayPaginas(): any[] {
+    return Array(this.totalPaginas).fill(0).map((x, i) => i + 1);
+  }
+
 
   contarPaginas(){
     this.corredorService.contarPaginas(this.seletor).subscribe(

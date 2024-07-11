@@ -86,6 +86,10 @@ export class ProdutoDetalheComponent implements OnInit {
     }
   }
 
+  public voltar() {
+    this.router.navigate(['home/produto/produto-listagem'])
+  }
+
   public inserir(): void {
     this.produtoService.salvar(this.produto).subscribe(
       (resposta) => {
@@ -110,8 +114,5 @@ export class ProdutoDetalheComponent implements OnInit {
       }
     );
   }
-
-  public voltar() {
-    this.router.navigate(['/produto']);
-  }
+  
 }

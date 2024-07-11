@@ -35,6 +35,9 @@ export class CategoriaListagemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.seletor.limite = this.TAMANHO_PAGINA;
+    this.seletor.pagina = 1;
+
     this.consultarTodosCategorias();
 
     this.corredorService.listarTodos().subscribe(
@@ -46,6 +49,8 @@ export class CategoriaListagemComponent implements OnInit {
       }
     );
 
+    this.pesquisar();
+    this.contarPaginas();
   }
 
   public consultarTodosCategorias() {
@@ -64,7 +69,7 @@ export class CategoriaListagemComponent implements OnInit {
     this.categoriaService.consultarComSeletor(this.seletor).subscribe(
       (resultado) => {
         this.categorias = resultado;
-        this.contarRegistros()
+        //this.contarRegistros()
       },
       (erro) => {
         console.error('Erro ao buscar categorias', erro.error.mensagem);
@@ -117,6 +122,11 @@ export class CategoriaListagemComponent implements OnInit {
     )
   }
 
+  atualizarPaginacao() {
+    this.contarPaginas();
+    this.pesquisar();
+  }
+
   proximaPg(){
     this.seletor.pagina++;
     this.pesquisar();
@@ -125,6 +135,16 @@ export class CategoriaListagemComponent implements OnInit {
   voltarPg(){
     this.seletor.pagina--;
     this.pesquisar();
+  }
+
+  irParaPagina(indicePagina: number) {
+    this.seletor.pagina = indicePagina;
+    this.pesquisar();
+  }
+
+   // Método para criar um array de páginas para ser utilizado no ngFor do HTML
+   criarArrayPaginas(): any[] {
+    return Array(this.totalPaginas).fill(0).map((x, i) => i + 1);
   }
 
   contarPaginas(){
