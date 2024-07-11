@@ -34,13 +34,13 @@ export class CorredorService {
   public excluir(id: number): Observable<boolean> {
     return this.httpClient.delete<boolean>(this.API +'/'+id);
   }
-  
+
   consultarComSeletor(seletor: CorredorSeletor): Observable<Array<Corredor>>{
     return this.httpClient.post<Array<Corredor>>(this.API + '/filtro', seletor)
   }
 
   contarRegistros(seletor: CorredorSeletor): Observable<number>{
-    return this.httpClient.post<number>(this.API + '/total-registros', seletor)
+    return this.httpClient.post<number>(this.API + '/contar', seletor)
   }
 
   contarPaginas(seletor: CorredorSeletor): Observable<number>{
